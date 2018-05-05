@@ -9,6 +9,9 @@ router.get('/userlist', function(req, res) {
     res.json(docs);
   });
 });
+module.exports = router;
+
+
 /* POST to adduser. */
 router.post('/adduser', function(req, res) {
   var db = req.db;
@@ -19,6 +22,7 @@ router.post('/adduser', function(req, res) {
     );
   });
 });
+module.exports = router;
 /* DELETE to deleteuser. */
 router.delete('/deleteuser/:id', function(req, res) {
   var db = req.db;
