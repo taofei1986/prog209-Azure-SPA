@@ -5,7 +5,11 @@ var userListData = [];
 
 // do this when the DOM is Ready ==========================
 $(document).ready(function() {
-
+  $('#userList').show();
+  $('#addUser').hide();
+  $('#userInfo').hide();
+  $('#btnCallAddUser').on('click', toAdduser);
+  $('.btnBackUserList').on('click', retrunUserList);
   // Populate the user table on initial page load 
   populateTable();
   
@@ -17,8 +21,28 @@ $(document).ready(function() {
   $('#userList table tbody').on('click', 'td a.linkdeleteuser', deleteUser);
 }); 
 
-// Functions ================================
+function resetAdduser(){
+$('#addUser fieldset input#inputUserName').val('');
+$('#addUser fieldset input#inputUserEmail').val('');
+$('#addUser fieldset input#inputUserFullname').val('');
+$('#addUser fieldset input#inputUserAge').val('');
+$('#addUser fieldset input#inputUserLocation').val('');
+$('#addUser fieldset input#inputUserGender').val('');
 
+}
+// Functions ================================
+function toAdduser(){
+  $('#userList').hide();
+  $('#addUser').show();
+  $('#userInfo').hide();
+  resetAdduser();
+}
+// Functions ================================
+function retrunUserList(){
+  $('#userList').show();
+  $('#addUser').hide();
+  $('#userInfo').hide();
+}
 
 // Fill table with data
 function populateTable() {
@@ -99,6 +123,9 @@ function addUser(event) {
     alert('Please fill in all fields');
     return false;
   }
+  $('#userList').show();
+  $('#addUser').hide();
+  $('#userInfo').hide();
 };
   
 // Delete User
@@ -129,6 +156,9 @@ function deleteUser(event) {
       populateTable();
 
     });
+    $('#userList').show();
+    $('#addUser').hide();
+    $('#userInfo').hide();
 
   }
   else {
@@ -159,4 +189,7 @@ function showUserInfo(event) {
     $('#userInfoAge').text(thisUserObject.age);
     $('#userInfoGender').text(thisUserObject.gender);
     $('#userInfoLocation').text(thisUserObject.location); 
+    $('#userList').hide();
+    $('#addUser').hide();
+    $('#userInfo').show();
 };  
