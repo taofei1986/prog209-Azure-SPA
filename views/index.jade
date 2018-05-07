@@ -1,14 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to our test
+  h1.welcome= title
+  p.welcome Welcome to our test
 
   // Wrapper
   #wrapper
 
     // USER INFO
-    div#userInfo
+    #userInfo
       h2 User Info
       p
         strong Name:
@@ -25,7 +25,7 @@ block content
       button.btnBackUserList return
 
     // USER LIST
-    div#userList
+    #userList
       h2 User List
 
       table
@@ -37,7 +37,7 @@ block content
       button#btnCallAddUser Add User
     // /USER LIST
     // ADD USER
-    div#addUser
+    #addUser
       h2 Add User
       fieldset
         input#inputUserName(type='text', placeholder='Username')
